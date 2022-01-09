@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Stigmee: The art to sanctuarize knowledge exchanges.
+  Copyright 2021-2022 Quentin Quadrat <lecrapouille@gmail.com>
+  This file is part of Stigmee.
+
+  Stigmee is free software: you can redistribute it and/or modify it
+  under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<manifest>
+    <remote name="github" fetch="ssh://git@github.com"/>
+    <default revision="master" remote="github" sync-j="8"/>
+
+    <!-- Godot Editor and API -->
+    <project name="godotengine/godot" remote="github" path="godot/3.4.2-stable/editor" revision="refs/tags/3.4.2-stable" />
+    <project name="godotengine/godot-cpp" remote="github" sync-s="true" path="godot/3.4.2-stable/cpp" revision="refs/tags/godot-3.4.2-stable" />
+
+    <!-- Godot modules for Stigmee -->
+    <project name="stigmee/gdnative-cef" remote="github" path="godot/gdnative/browser" revision="dev-lecrapouille" />
+    <project name="stigmee/gdnative-stigmark" remote="github" path="godot/gdnative/stigmark" />
+
+    <!-- Godot project as Stigmee application -->
+    <project name="stigmee/stigmee" remote="github" path="stigmee" revision="dev-helloworld-cef" >
+        <copyfile src="build.sh" dest="build.sh" />
+        <copyfile src="README.md" dest="README.md" />
+    </project>
+
+    <!-- Stigmee packages -->
+    <project name="stigmee/stigmark-server" remote="github" path="stigmark" />
+    <project name="stigmee/beebots" remote="github" path="beebots" />
+
+    <!-- Stigmee documentation -->
+    <project name="stigmee/doc-internal" remote="github" path="doc/internal" />
+</manifest>
