@@ -1,0 +1,56 @@
+#  Stigmee: The art to sanctuarize knowledge exchanges.
+#  Copyright 2021-2022 Quentin Quadrat <lecrapouille@gmail.com>
+#  This file is part of Stigmee.
+#
+#  Stigmee is free software: you can redistribute it and/or modify it
+#  under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+#  General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+### Repo manifest using https://github.com/dmerejkowsky/tsrc
+repos:
+
+  # Godot Editor and API
+  - url: git@github.com:godotengine/godot
+    dest: godot/3.4.2-stable/editor
+    tag: 3.4.2-stable
+
+  - url: git@github.com:godotengine/godot-cpp
+    dest: godot/3.4.2-stable/cpp
+    tag: godot-3.4.2-stable
+
+  # Godot modules for Stigmee
+  - url: git@github.com:stigmee/gdnative-cef
+    dest: godot/gdnative/browser
+    branch: dev-lecrapouille
+
+  - url: git@github.com:stigmee/gdnative-stigmark
+    dest: godot/gdnative/stigmark
+
+  # Godot project as Stigmee application
+  - url: git@github.com:stigmee/stigmee
+    dest: stigmee
+    branch: dev-helloworld-cef
+    copy:
+      - file: build.sh
+      - file: README.md
+
+  # Stigmee packages
+  - url: git@github.com:stigmee/stigmark-server
+    dest: stigmark
+
+  - url: git@github.com:stigmee/beebots
+    dest: beebots
+
+  # Stigmee documentation
+  - url: git@github.com:stigmee/doc-internal
+    dest: doc/internal
