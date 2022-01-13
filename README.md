@@ -158,3 +158,25 @@ repo sync
 **WARNING:**
 
 If you have uncommited changes on a branch, `repo sync` will failed. You have to commit your changes first (and eventually commit them on GitHub) or simply delete or stash them. The repo command will not delete your local commits **except if your are working on detached branch**.
+
+### How to update a tsrc manifest safely ?
+
+It is not advised to edit the file in .tsrc/manifest/manifest.yml directly, because tsrc sync will silently undo any local changes made to this file.
+The good solution is described [here](https://dmerejkowsky.github.io/tsrc/guide/manifest/#using_the_apply-manifest_command_to_avoid_breaking_developers_workflow) and commands summarized here, for our Stigmee project, by the following Unix shell commands:
+
+```bash
+cd /tmp
+git clone git@github.com:stigmee/manifest.git stigmee-manifest
+# Modify /tmp/stigmee-manifest/manifest.yml
+
+# Check that the changes are OK
+cd $WORKSPACE_STIGMEE
+tsrc apply-manifest /tmp/stigmee-manifest/manifest.yml
+
+# If so, commit and push manifest changes:
+cd /tmp/stigmee-manifest
+git commit -a -m "..."
+git push
+
+# Now you know that everyone can safely run `tsrc sync`
+```
