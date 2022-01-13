@@ -28,7 +28,7 @@
     <project name="godotengine/godot-cpp" remote="github" sync-s="true" path="godot/3.4.2-stable/cpp" revision="refs/tags/godot-3.4.2-stable" />
 
     <!-- Godot modules for Stigmee -->
-    <project name="stigmee/gdnative-cef" remote="github" path="godot/gdnative/browser" revision="dev-lecrapouille" />
+    <project name="stigmee/gdnative-cef" remote="github" path="godot/gdnative/browser" />
     <project name="stigmee/gdnative-stigmark" remote="github" path="godot/gdnative/stigmark" />
 
     <!-- Godot project as Stigmee application -->
