@@ -4,22 +4,30 @@
 
 **The following steps have to be done once.**
 
-You have to install a tool that allows to keep up-to-date several git repositories within a workspace thanks to a file, called manifest, holding the
-list of GitHub repositories, their branches or tags or SHA1 and the path inside the workspace where they have to be installed.
+Firstly, you have to install a tool that will help you to keep up-to-date the
+numerous git repositories stored inside a main folder, named workspace. The
+list of git repositories is stored inside a text file named manifest. It also
+includes information such as branches or tags or SHA1 of the repositories and
+where they have to be installed inside the workspace.
 
 You have to install one of the follow tool:
-- [tsrc](https://github.com/dmerejkowsky/tsrc)
-- [git-repo](https://source.android.com/setup/build/downloading#installing-repo)
+- [tsrc](https://github.com/dmerejkowsky/tsrc) (recommended).
+- [git-repo](https://source.android.com/setup/build/downloading#installing-repo) (less recommended).
 
-They do the same job depict in the previous paragraph. The `tsrc` is more recommanded because because `git-repo` have major drawbacks that `tsrc` does not have :
+Both tools do exactly the same job depicted in the previous paragraph. They have
+closed command lines. The `tsrc` is more recommended because because `git-repo`
+have major drawbacks that `tsrc` had fixed :
 - No symlink is managed with Windows.
-- To use symlinks, you will have to install >= Window 10 and set adminstration rights.
-- The ultimate point, is that `tsrc` does not detached your branches and therefore you will have less risk to loose your work.
+- To use symlinks, you will have to install >= Window 10 and set administration
+  rights.
+- The ultimate point, is that `tsrc` does not detached your branches and
+  therefore you will have less risk to loose your work.
 
-Anyway this repo contains manifests for each of these tools. Only the syntax of the manifest is different (yaml for tsrc versus xml for git-repo)
-and both tools have similar command lines.
+Anyway this current git repository contains the manifest for each of these
+tools. Only the format of the file is different (yaml for tsrc versus xml for
+git-repo).
 
-### Install the tsrc tool
+### Install the tsrc tool (recommended way)
 
 Make sure to have Python 3.7 or later installed. The recommended way to install tsrc is to use `pipx`:
 ```
@@ -31,7 +39,7 @@ You can also install with pip:
 python3.9 -m pip install tsrc
 ```
 
-### Install the git-repo tool
+### Or install the git-repo tool (less recommended)
 
 You will need to install [git-repo](https://gerrit.googlesource.com/git-repo/).
 
@@ -52,15 +60,18 @@ brew install repo
 
 ### Be sure to have a SSH connection to GitHub
 
-You shall install and configure SSH for accessing to GitHub.
-Follow steps in this [inlik](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) to generate your SSH keys.
-Once done, you will fetch the whole Stigmee's code source using SSH protocol. Do not use HTTPS protocol since the manifest is
+You shall install and configure SSH for accessing to GitHub.  Follow steps in
+this
+[inlik](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+to generate your SSH keys.  Once done, you will fetch the whole Stigmee's code
+source using SSH protocol. Do not use HTTPS protocol since both manifests are
 configured to use SSH.
 
 ### Set Stigmee's environment variables
 
-Save this environment variable in your `~/.bashrc` file (or any equivalent file), the environement variable
-`$WORKSPACE_STIGMEE` refering to the workspace folder for compiling Stigmee. It is used by our internal scripts:
+Save this environment variable in your `~/.bashrc` file (or any equivalent
+file), the environment variable `$WORKSPACE_STIGMEE` referring to the workspace
+folder for compiling Stigmee. It is used by our internal scripts:
 
 ```bash
 export WORKSPACE_STIGMEE=/your/desired/path/for/workspace_stigmee
@@ -68,7 +79,7 @@ export WORKSPACE_STIGMEE=/your/desired/path/for/workspace_stigmee
 
 ## Download Stigmee code source
 
-**Clone Stigmee with tsrc:**
+**Clone Stigmee using tsrc (recommended way):**
 
 ```bash
 cd $WORKSPACE_STIGMEE
@@ -76,9 +87,15 @@ tsrc init git@github.com:stigmee/manifest.git
 tsrc sync
 ```
 
-The manifest for tsrc is [manifest.yml](manifest.yml).
+The manifest for tsrc is [manifest.yml](manifest.yml). Note: for some Window
+users the color is broken. You can add the option `--color never` and for people
+with some low connection, they can the option `--verbose` to see if tsrc is not
+frozen. For example:
+```
+tsrc --color never --verbose init git@github.com:stigmee/manifest.git
+```
 
-**Clone Stigmee with git-repo:**
+**Alternative, clone Stigmee with git-repo (less recommended):**
 
 ```bash
 cd $WORKSPACE_STIGMEE
@@ -90,18 +107,24 @@ The manifest for git-repo is [default.xml](default.xml).
 
 **WARNING:**
 
-With git-repo, do not forget it makes your git repos with HEAD detached and add a remote branch named `m/master` pointing to the branch/tag/sha1
-indicated by the repo manifest. To avoid loosing your modifications (by typing `repo sync`) you should type:
+With git-repo, do not forget it makes your git repos with HEAD detached and add
+a remote branch named `m/master` pointing to the branch/tag/sha1 indicated by
+the repo manifest. To avoid loosing your modifications (by typing `repo sync`)
+you should type:
 
 ```bash
 git checkout <name-of-the-branch>
 ```
 
-inside your git repo before starting to work. Please read this [document](https://github.com/stigmee/doc/blob/main/doc/tuto_git_fr.md#travailler-sur-plusieurs-repo-git) for more information.
+inside your git repo before starting to work. Please read this
+[document](https://github.com/stigmee/doc/blob/main/doc/tuto_git_fr.md#travailler-sur-plusieurs-repo-git)
+for more information.
 
 **Stigmee workspace:**
 
-If everything works well you will have the following workspace for Stigmee:
+If everything is working well, you will have the following workspace for
+Stigmee :
+
 ```
 📦workspace_stigmee
  ┣ 📂doc
@@ -116,31 +139,37 @@ If everything works well you will have the following workspace for Stigmee:
  ┃ ┃ ┣ 📂editor          ➡️ To compile the Godot editor
  ┃ ┃ ┗ 📂cpp             ➡️ Godot C++ API
  ┃ ┗ 📂gdnative          ➡️ Stigmee modules as Godot native modules
- ┃   ┣ 📂stigmark
- ┃   ┗ 📂browser
+ ┃   ┣ 📂stigmark        ➡️ Client for workspace_stigmee/stigmark
+ ┃   ┗ 📂browser         ➡️ Chromium Embedded Framework
  ┣ 📂stigmark            ➡️ Browser extensions to "bookmark" tabs on private server
  ┣ 📂beebots             ➡️ AI to "bookmark" tabs
- ┣ 📜README.md           ➡️ Installation guide
- ┗ 📜build.sh            ➡️ A copy of stigmee/build.sh
+ ┣ 📜README.md           ➡️ Link to the installation guide
+ ┗ 📜build.sh            ➡️ Link to stigmee/build.sh for building the whole project
 ```
 
-To install Stigmee, please refer to this [documentation](https://github.com/stigmee/stigmee).
+To install Stigmee type:
 
-### Get Stigmee worksape up-to-date
+``` bash
+cd $WORKSPACE_STIGMEE
+./build.sh release
+# Alternative:
+# ./build.sh debug
+```
 
-**The following steps have to done for updating your code source from your team mates latest changes.**
+Please refer to this [documentation](https://github.com/stigmee/stigmee/blob/dev-helloworld-cef/README.md) for more information.
 
-1. Check if you have uncommited changes:
+### Keep Stigmee's workspace up-to-date
+
+**The following steps have to done for updating your code source from your team
+mates latest changes.**
+
+1. Check if you have uncommitted changes:
 
 ```bash
 cd $WORKSPACE_STIGMEE
 tsrc status
-```
-
-Or:
-```bash
-cd $WORKSPACE_STIGMEE
-repo status
+# Alternative:
+# repo status
 ```
 
 2. Synchronize your code source from your team mate latest changes:
@@ -148,33 +177,64 @@ repo status
 ```bash
 cd $WORKSPACE_STIGMEE
 tsrc sync
-```
-Or:
-```bash
-cd $WORKSPACE_STIGMEE
-repo sync
+# Alternative:
+# repo sync
 ```
 
 **WARNING:**
 
-If you have uncommited changes on a branch, `repo sync` will failed. You have to commit your changes first (and eventually commit them on GitHub) or simply delete or stash them. The repo command will not delete your local commits **except if your are working on detached branch**.
+If you have uncommitted changes on a branch `tsrc sync` or `repo sync` may
+failed. You have to commit your changes first (and eventually commit them on
+GitHub) or stash them (`git stash`) or delete them. The sync command will not
+delete your local commits **except if you are using git-repo and if your are
+working on detached branch** (that is why tsrc is more recommended).
+
+**Bash script helper:**
+
+Here is a small utility to help initializing or synchronizing your Stigmee
+workspace.
+
+```bash
+export WORKSPACE_STIGMEE=/your/desired/path/for/workspace_stigmee
+function stigmee_sync()
+{
+    if [ "$WORKSPACE_STIGMEE" == "" ]; then
+        echo "Please export WORKSPACE_STIGMEE to refer to your desired folder."
+        echo "The save the export command in your .bashrc file"
+        exit 1
+    fi
+
+    if [ -d "$WORKSPACE_STIGMEE/.tsrc" ]; then
+        cd "$WORKSPACE_STIGMEE"
+        tsrc sync
+    else
+        mkdir -p "$WORKSPACE_STIGMEE" || exit 1
+        cd "$WORKSPACE_STIGMEE"
+        tsrc --verbose init git@github.com:stigmee/manifest.git
+        tsrc sync
+    fi
+}
+```
 
 ### How to update a tsrc manifest safely ?
 
-It is not advised to edit the file in .tsrc/manifest/manifest.yml directly, because tsrc sync will silently undo any local changes made to this file.
-The good solution is described [here](https://dmerejkowsky.github.io/tsrc/guide/manifest/#using_the_apply-manifest_command_to_avoid_breaking_developers_workflow) and commands summarized here, for our Stigmee project, by the following Unix shell commands:
+It is not advised to edit the file in `.tsrc/manifest/manifest.yml` directly,
+because `tsrc sync` will silently undo any local changes made to this file.  The
+good solution is described
+[here](https://dmerejkowsky.github.io/tsrc/guide/manifest/#using_the_apply-manifest_command_to_avoid_breaking_developers_workflow)
+and commands for our Stigmee project are summarized here by the following Unix
+shell commands:
 
 ```bash
-cd /tmp
-git clone git@github.com:stigmee/manifest.git stigmee-manifest
-# Modify /tmp/stigmee-manifest/manifest.yml
+# Modify Stigmee's manifest
+xdg-open $WORKSPACE_STIGMEE/packages/manifest/manifest.yml
 
 # Check that the changes are OK
 cd $WORKSPACE_STIGMEE
-tsrc apply-manifest /tmp/stigmee-manifest/manifest.yml
+tsrc apply-manifest $WORKSPACE_STIGMEE/packages/manifest/manifest.yml
 
 # If so, commit and push manifest changes:
-cd /tmp/stigmee-manifest
+cd $WORKSPACE_STIGMEE/packages/manifest
 git commit -a -m "..."
 git push
 
