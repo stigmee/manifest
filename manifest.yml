@@ -39,18 +39,24 @@ repos:
   - url: git@github.com:stigmee/stigmee
     dest: stigmee
     branch: dev-helloworld-cef
-    symlink:
-      - source: build.sh
-        target: stigmee/build.sh
-      - source: README.md
-        target: stigmee/README.md
 
   # Stigmee packages
   - url: git@github.com:stigmee/stigmark-server
     dest: stigmark
 
   - url: git@github.com:stigmee/beebots
-    dest: beebots
+    dest: packages/beebots
+
+  - url: git@github.com:stigmee/install
+    dest: packages/install
+    symlink:
+      - source: build.sh
+        target: packages/install/build.sh
+      - source: README.md
+        target: packages/install/README.md
+
+  - url: git@github.com:stigmee/manifest
+    dest: packages/manifest
 
   # Stigmee documentation
   - url: git@github.com:stigmee/doc-internal

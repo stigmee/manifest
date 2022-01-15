@@ -32,14 +32,16 @@
     <project name="stigmee/gdnative-stigmark" remote="github" path="godot/gdnative/stigmark" />
 
     <!-- Godot project as Stigmee application -->
-    <project name="stigmee/stigmee" remote="github" path="stigmee" revision="dev-helloworld-cef" >
-        <symlink src="stigmee/build.sh" dest="build.sh" />
-        <symlink src="stigmee/README.md" dest="README.md" />
-    </project>
+    <project name="stigmee/stigmee" remote="github" path="stigmee" revision="dev-helloworld-cef" />
 
     <!-- Stigmee packages -->
     <project name="stigmee/stigmark-server" remote="github" path="stigmark" />
-    <project name="stigmee/beebots" remote="github" path="beebots" />
+    <project name="stigmee/beebots" remote="github" path="packages/beebots" />
+    <project name="stigmee/manifest" remote="github" path="packages/manifest" />
+    <project name="stigmee/install" remote="github" path="packages/install" >
+        <symlink src="packages/install/build.sh" dest="build.sh" />
+        <symlink src="packages/install/README.md" dest="README.md" />
+    </project>
 
     <!-- Stigmee documentation -->
     <project name="stigmee/doc-internal" remote="github" path="doc/internal" />
