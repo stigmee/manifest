@@ -77,6 +77,15 @@ folder for compiling Stigmee. It is used by our internal scripts:
 export WORKSPACE_STIGMEE=/your/desired/path/for/workspace_stigmee
 ```
 
+### Workaround
+
+For the moment Godot does not find correctly the libcef.so while indicated in the
+gdnlib file. So for the moment:
+
+```bash
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$WORKSPACE_STIGMEE/stigmee/build
+```
+
 ## Download Stigmee code source
 
 **Clone Stigmee using tsrc (recommended way):**
@@ -196,6 +205,8 @@ workspace.
 
 ```bash
 export WORKSPACE_STIGMEE=/your/desired/path/for/workspace_stigmee
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$WORKSPACE_STIGMEE/stigmee/build
+
 function stigmee_sync()
 {
     if [ "$WORKSPACE_STIGMEE" == "" ]; then
