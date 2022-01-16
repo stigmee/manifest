@@ -132,17 +132,16 @@ for more information.
 **Stigmee workspace:**
 
 If everything is working well, you will have the following workspace for
-Stigmee :
+Stigmee (may change):
 
 ```
 📦workspace_stigmee
+ ┣ 📂stigmee             ➡️ Main Stigmee project
+ ┃ ┗ 📂build             ➡️ (Generated) Stigmee binaries
+ ┃   ┗ 📦stigmee         ➡️ (Generated) Stigmee application
  ┣ 📂doc
  ┃ ┣ 📂API               ➡️ Public documentation
  ┃ ┗ 📂internal          ➡️ Stigmee documention
- ┣ 📂stigmee             ➡️ Main Stigmee project
- ┃ ┣ 📂stigmee
- ┃ ┃ ┗ 📂build           ➡️ (Generated) Hold Stigmee's binaries
- ┃ ┗ 📜build.sh          ➡️ Main build script to compile Stigmee
  ┣ 📂godot
  ┃ ┣ 📂3.4.2
  ┃ ┃ ┣ 📂editor          ➡️ To compile the Godot editor
@@ -150,10 +149,14 @@ Stigmee :
  ┃ ┗ 📂gdnative          ➡️ Stigmee modules as Godot native modules
  ┃   ┣ 📂stigmark        ➡️ Client for workspace_stigmee/stigmark
  ┃   ┗ 📂browser         ➡️ Chromium Embedded Framework
- ┣ 📂stigmark            ➡️ Browser extensions to "bookmark" tabs on private server
- ┣ 📂beebots             ➡️ AI to "bookmark" tabs
+ ┣ 📂packages
+ ┃ ┣ 📂install           ➡️ Scripts for building and continous integration
+ ┃ ┃ ┗ 📜build.sh        ➡️ Main build script for compiling Stigmee
+ ┃ ┣ 📂manifest          ➡️ Manifest knowing all Stigmee git repositories
+ ┃ ┣ 📂beebots           ➡️ AI to "bookmark" tabs
+ ┃ ┗ 📂beebots           ➡️ AI to "bookmark" tabs
  ┣ 📜README.md           ➡️ Link to the installation guide
- ┗ 📜build.sh            ➡️ Link to stigmee/build.sh for building the whole project
+ ┗ 📜build.sh            ➡️ Link to packages/install/build.sh for compiling Stigmee
 ```
 
 To install Stigmee type:
