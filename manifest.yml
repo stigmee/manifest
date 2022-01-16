@@ -38,7 +38,6 @@ repos:
   # Godot project as Stigmee application
   - url: git@github.com:stigmee/stigmee
     dest: stigmee
-    branch: dev-helloworld-cef
 
   # Stigmee packages
   - url: git@github.com:stigmee/stigmark-server

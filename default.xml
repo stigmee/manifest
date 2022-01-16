@@ -32,7 +32,7 @@
     <project name="stigmee/gdnative-stigmark" remote="github" path="godot/gdnative/stigmark" />
 
     <!-- Godot project as Stigmee application -->
-    <project name="stigmee/stigmee" remote="github" path="stigmee" revision="dev-helloworld-cef" />
+    <project name="stigmee/stigmee" remote="github" path="stigmee" />
 
     <!-- Stigmee packages -->
     <project name="stigmee/stigmark-server" remote="github" path="stigmark" />
