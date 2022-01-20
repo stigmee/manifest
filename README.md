@@ -67,6 +67,9 @@ to generate your SSH keys.  Once done, you will fetch the whole Stigmee's code
 source using SSH protocol. Do not use HTTPS protocol since both manifests are
 configured to use SSH.
 
+**Notes:** On Windows you can use `git gui` to install your SSH key. tsrc seems does
+not seem to manage correctly passphrase (at least for Windows) so let it empty.
+
 ### Set Stigmee's environment variables
 
 Save this environment variable in your `~/.bashrc` file (or any equivalent
