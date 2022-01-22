@@ -17,15 +17,29 @@ You have to install one of the follow tool:
 Both tools do exactly the same job depicted in the previous paragraph. They have
 closed command lines. The `tsrc` is more recommended because because `git-repo`
 have major drawbacks that `tsrc` had fixed :
-- No symlink is managed with Windows.
-- To use symlinks, you will have to install >= Window 10 and set administration
-  rights.
+- git-repo on Windows is unofficially maintained and uses internally symlink that is not managed
+  by all Windows versions (>= 10) and need administration rights.
 - The ultimate point, is that `tsrc` does not detached your branches and
   therefore you will have less risk to loose your work.
 
 Anyway this current git repository contains the manifest for each of these
 tools. Only the format of the file is different (yaml for tsrc versus xml for
 git-repo).
+
+### Operating systems
+
+Stigmee can be compiled for Linux, Windows 10, and MacOS X. Stigmee is not yet working for MacOS X.
+
+### Mandatory tools to be installed
+
+Install the following tools: `python` (greater or equal to 3.7), `git`, `git-gui`.
+
+- For Linux, depending on your distribution you can use `sudo apt-get install`
+- For MacOS X you can install [homebrew](https://brew.sh/index_fr).
+- For Windows user you will have to install:
+  - Python: https://www.python.org/downloads/windows
+  - git and git-gui: and https://git-scm.com/download/win (allows ssh and use conversion CRLF to CR)
+  - Ideally have adminstrator rights.
 
 ### Install the tsrc tool (recommended way)
 
@@ -60,27 +74,34 @@ brew install repo
 
 ### Be sure to have a SSH connection to GitHub
 
-You shall install and configure SSH for accessing to GitHub.  Follow steps in
-this
+You shall install and configure SSH for accessing to GitHub. The simplest way is to
+make generate your SSH key with `git-gui` as shown in the following figure
+
+![gitgui](https://i.stack.imgur.com/UdlWS.png)
+
+Else, you can follow steps in this
 [inlik](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
-to generate your SSH keys.  Once done, you will fetch the whole Stigmee's code
+to generate your SSH keys. Once done, you will fetch the whole Stigmee's code
 source using SSH protocol. Do not use HTTPS protocol since both manifests are
 configured to use SSH.
 
-**Notes:** On Windows you can use `git gui` to install your SSH key. tsrc seems does
-not seem to manage correctly passphrase (at least for Windows) so let it empty.
+Avoid to use a passphrase to avoid typing it for each git repos. On Windows the
+SSH keys are in `C:\users\<your name>\.ssh` and in Linux in `/home/<your name>/.ssh`.
 
 ### Set Stigmee's environment variables
 
-Save this environment variable in your `~/.bashrc` file (or any equivalent
-file), the environment variable `$WORKSPACE_STIGMEE` referring to the workspace
-folder for compiling Stigmee. It is used by our internal scripts:
+- For Linux and MacOS X, you have this environment variable in your `~/.bashrc` file
+(or any equivalent file), the environment variable `$WORKSPACE_STIGMEE` referring to
+the workspace folder for compiling Stigmee. It is used by our internal scripts:
 
 ```bash
 export WORKSPACE_STIGMEE=/your/desired/path/for/workspace_stigmee
 ```
 
-### Workaround
+- For Windows, you can save this variable inside the "System Properties" as
+"Environnement Variables".
+
+### Linux Workaround
 
 For the moment Godot does not find correctly the libcef.so while indicated in the
 gdnlib file. So for the moment:
@@ -91,7 +112,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$WORKSPACE_STIGMEE/stigmee/build
 
 ## Download Stigmee code source
 
-**Clone Stigmee using tsrc (recommended way):**
+### Clone Stigmee using tsrc (recommended way)
 
 ```bash
 cd $WORKSPACE_STIGMEE
@@ -99,15 +120,18 @@ tsrc init git@github.com:stigmee/manifest.git
 tsrc sync
 ```
 
+On Linux `tsrc init` will only create the `.tsrc` folder and `tsrc sync`
+will clone repositories. On Windows it seems that `tsrc init` also calls `tsrc sync`.
+
 The manifest for tsrc is [manifest.yml](manifest.yml). Note: for some Window
 users the color is broken. You can add the option `--color never` and for people
 with some low connection, they can the option `--verbose` to see if tsrc is not
 frozen. For example:
 ```
-tsrc --color never --verbose init git@github.com:stigmee/manifest.git
+tsrc --color=never --verbose init git@github.com:stigmee/manifest.git
 ```
 
-**Alternative, clone Stigmee with git-repo (less recommended):**
+### Alternative, clone Stigmee with git-repo (less recommended)
 
 ```bash
 cd $WORKSPACE_STIGMEE
@@ -115,7 +139,7 @@ repo init -u git@github.com:stigmee/manifest.git
 repo sync
 ```
 
-The manifest for git-repo is [default.xml](default.xml).
+The manifest for git-repo is [default.xml](default.xml). On Linux `repo init` will only create the `.repo` folder and `repo sync` will clone repositories.
 
 **WARNING:**
 
@@ -132,7 +156,7 @@ inside your git repo before starting to work. Please read this
 [document](https://github.com/stigmee/doc/blob/main/doc/tuto_git_fr.md#travailler-sur-plusieurs-repo-git)
 for more information.
 
-**Stigmee workspace:**
+### Stigmee workspace
 
 If everything is working well, you will have the following workspace for
 Stigmee (may change):
@@ -157,25 +181,34 @@ Stigmee (may change):
  ┃ ┃ ┗ 📜build.sh        ➡️ Main build script for compiling Stigmee
  ┃ ┣ 📂manifest          ➡️ Manifest knowing all Stigmee git repositories
  ┃ ┣ 📂beebots           ➡️ AI to "bookmark" tabs
- ┃ ┗ 📂beebots           ➡️ AI to "bookmark" tabs
+ ┃ ┗ 📂stigmark          ➡️ Browser extensions to "bookmark" tabs on private server
  ┣ 📜README.md           ➡️ Link to the installation guide
  ┗ 📜build.sh            ➡️ Link to packages/install/build.sh for compiling Stigmee
 ```
 
-To install Stigmee type:
+### Compile Stigmee
+
+Please refer to this [documentation](https://github.com/stigmee/stigmee/blob/dev-helloworld-cef/README.md) for more information since this current document is mainly talking about the manifest but as quick summary:
+
+- For Linux and MacOS X:
 
 ``` bash
 cd $WORKSPACE_STIGMEE
-./build.sh release
+./build_unix.sh release
 # Alternative:
-# ./build.sh debug
+# ./build_unix.sh debug
 ```
 
-Please refer to this [documentation](https://github.com/stigmee/stigmee/blob/dev-helloworld-cef/README.md) for more information.
+- For Windows. Call the Visual Studio 2022 prompt `x64 Native Tools Command prompt for VS2022`:
+
+```
+cd %WORKSPACE_STIGMEE%
+build_win.bat
+```
 
 ### Keep Stigmee's workspace up-to-date
 
-**The following steps have to done for updating your code source from your team
+**The following steps have to done for updating your code source to get your team
 mates latest changes.**
 
 1. Check if you have uncommitted changes:
@@ -204,7 +237,7 @@ GitHub) or stash them (`git stash`) or delete them. The sync command will not
 delete your local commits **except if you are using git-repo and if your are
 working on detached branch** (that is why tsrc is more recommended).
 
-**Bash script helper:**
+### Bash script helper
 
 Here is a small utility to help initializing or synchronizing your Stigmee
 workspace.
