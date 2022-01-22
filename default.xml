@@ -39,7 +39,8 @@
     <project name="stigmee/beebots" remote="github" path="packages/beebots" />
     <project name="stigmee/manifest" remote="github" path="packages/manifest" />
     <project name="stigmee/install" remote="github" path="packages/install" >
-        <symlink src="packages/install/build.sh" dest="build.sh" />
+        <symlink src="packages/install/build_unix.sh" dest="build_unix.sh" />
+        <symlink src="packages/install/build_win.bat" dest="build_win.bat" />
         <symlink src="packages/install/README.md" dest="README.md" />
     </project>
 
