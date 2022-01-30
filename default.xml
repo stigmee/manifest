@@ -33,6 +33,7 @@
 
     <!-- Godot project as Stigmee application -->
     <project name="stigmee/stigmee" remote="github" path="stigmee" />
+    <project name="stigmee/assets" remote="github" path="stigmee/assets" />
 
     <!-- Stigmee packages -->
     <project name="stigmee/stigmark-server" remote="github" path="stigmark" />
