@@ -61,7 +61,7 @@ You will need to install [git-repo](https://gerrit.googlesource.com/git-repo/).
 
 ```bash
 sudo curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo
-sudo chmod a+x /usr/bin/repo/repo
+sudo chmod a+x /usr/bin/repo
 ```
 
 - MacOS X: The faster way to install is to use [homebrew](https://formulae.brew.sh/formula/repo):
