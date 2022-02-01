@@ -38,8 +38,6 @@ repos:
   # Godot project as Stigmee application
   - url: git@github.com:stigmee/stigmee
     dest: stigmee
-  - url: git@github.com:stigmee/assets
-    dest: stigmee/assets
 
   # Stigmee packages
   - url: git@github.com:stigmee/stigmark-server
