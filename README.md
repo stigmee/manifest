@@ -53,6 +53,11 @@ You can also install with pip:
 python3.9 -m pip install tsrc
 ```
 
+Note: for MacOS X if you have the following error: `tsrc not found` you can export this line:
+```
+export PATH="${PATH}:$(python3 -c 'import site; print(site.USER_BASE)')/bin"
+```
+
 ### Or install the git-repo tool (less recommended)
 
 You will need to install [git-repo](https://gerrit.googlesource.com/git-repo/).
