@@ -185,12 +185,12 @@ Stigmee (may change):
  ┃   ┗ 📂browser         ➡️ Chromium Embedded Framework
  ┣ 📂packages
  ┃ ┣ 📂install           ➡️ Scripts for building and continous integration
- ┃ ┃ ┗ 📜build.sh        ➡️ Main build script for compiling Stigmee
+ ┃ ┃ ┗ 📜build.py        ➡️ Main build script for compiling Stigmee
  ┃ ┣ 📂manifest          ➡️ Manifest knowing all Stigmee git repositories
  ┃ ┣ 📂beebots           ➡️ AI to "bookmark" tabs
  ┃ ┗ 📂stigmark          ➡️ Browser extensions to "bookmark" tabs on private server
  ┣ 📜README.md           ➡️ Link to the installation guide
- ┗ 📜build.sh            ➡️ Link to packages/install/build.sh for compiling Stigmee
+ ┗ 📜build.py            ➡️ Link to packages/install/build.sh for compiling Stigmee
 ```
 
 ### Compile Stigmee
@@ -201,16 +201,16 @@ Please refer to this [documentation](https://github.com/stigmee/stigmee/blob/dev
 
 ``` bash
 cd $WORKSPACE_STIGMEE
-./build_unix.sh release
+./build.sh release
 # Alternative:
-# ./build_unix.sh debug
+# ./build.py debug
 ```
 
 - For Windows. Call the Visual Studio 2022 prompt `x64 Native Tools Command prompt for VS2022`:
 
 ```
 cd %WORKSPACE_STIGMEE%
-build_win.bat
+build.py
 ```
 
 ### Keep Stigmee's workspace up-to-date

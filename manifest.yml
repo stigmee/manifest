@@ -49,10 +49,8 @@ repos:
   - url: git@github.com:stigmee/install
     dest: packages/install
     symlink:
-      - source: build_unix.sh
-        target: packages/install/build_unix.sh
-      - source: build_win.bat
-        target: packages/install/build_win.bat
+      - source: build.py
+        target: packages/install/build.py
       - source: README.md
         target: packages/install/README.md
 
