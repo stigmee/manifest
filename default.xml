@@ -35,7 +35,7 @@
     <project name="stigmee/stigmee" remote="github" path="stigmee" />
 
     <!-- Stigmee packages -->
-    <project name="stigmee/stigmark-server" remote="github" path="stigmark" />
+    <project name="stigmee/stigmark-server" remote="github" path="packages/stigmark" />
     <project name="stigmee/beebots" remote="github" path="packages/beebots" />
     <project name="stigmee/manifest" remote="github" path="packages/manifest" />
     <project name="stigmee/install" remote="github" path="packages/install" >

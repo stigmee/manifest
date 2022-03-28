@@ -41,7 +41,7 @@ repos:
 
   # Stigmee packages
   - url: git@github.com:stigmee/stigmark-server
-    dest: stigmark
+    dest: packages/stigmark
 
   - url: git@github.com:stigmee/beebots
     dest: packages/beebots
