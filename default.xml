@@ -24,8 +24,8 @@
     <default revision="master" remote="github" sync-j="8"/>
 
     <!-- Godot Editor and API -->
-    <project name="godotengine/godot" remote="github" path="godot/3.4.2-stable/editor" revision="refs/tags/3.4.2-stable" />
-    <project name="godotengine/godot-cpp" remote="github" sync-s="true" path="godot/3.4.2-stable/cpp" revision="refs/tags/godot-3.4.2-stable" />
+    <project name="godotengine/godot" remote="github" path="godot/3.4.3-stable/editor" revision="refs/tags/3.4.3-stable" />
+    <project name="godotengine/godot-cpp" remote="github" sync-s="true" path="godot/3.4.3-stable/cpp" revision="refs/tags/godot-3.4.3-stable" />
 
     <!-- Godot modules for Stigmee -->
     <project name="stigmee/gdnative-cef" remote="github" path="godot/gdnative/browser" />
