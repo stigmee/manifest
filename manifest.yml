@@ -35,6 +35,9 @@ repos:
   - url: git@github.com:stigmee/gdnative-stigmark
     dest: godot/gdnative/stigmark
 
+  - url: git@github.com:stigmee/gdnative-ipfs.git
+    dest: godot/gdnative/gdipfs
+
   # Godot project as Stigmee application
   - url: git@github.com:stigmee/stigmee
     dest: stigmee
@@ -56,6 +59,13 @@ repos:
 
   - url: git@github.com:stigmee/manifest
     dest: packages/manifest
+
+  # IPFS packages
+  - url: git@github.com:vasild/cpp-ipfs-http-client.git
+    dest: packages/ipfs
+
+  - url: git@github.com:nlohmann/json.git
+    dest: packages/json
 
   # Stigmee documentation
   - url: git@github.com:stigmee/doc-internal

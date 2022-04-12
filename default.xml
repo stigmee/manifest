@@ -30,6 +30,7 @@
     <!-- Godot modules for Stigmee -->
     <project name="stigmee/gdnative-cef" remote="github" path="godot/gdnative/browser" />
     <project name="stigmee/gdnative-stigmark" remote="github" path="godot/gdnative/stigmark" />
+    <project name="stigmee/gdnative-ipfs" remote="github" path="godot/gdnative/gdipfs" />
 
     <!-- Godot project as Stigmee application -->
     <project name="stigmee/stigmee" remote="github" path="stigmee" />
@@ -42,6 +43,10 @@
         <symlink src="packages/install/build.py" dest="build.py" />
         <symlink src="packages/install/README.md" dest="README.md" />
     </project>
+
+    <!-- IPFS packages -->
+    <project name="vasild/cpp-ipfs-http-client" remote="github" path="packages/ipfs" />
+    <project name="nlohmann/json" remote="github" path="packages/json" />
 
     <!-- Stigmee documentation -->
     <project name="stigmee/doc-internal" remote="github" path="doc/internal" />
