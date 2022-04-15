@@ -190,7 +190,7 @@ Stigmee (may change):
  ┃ ┣ 📂beebots           ➡️ AI to "bookmark" tabs
  ┃ ┗ 📂stigmark          ➡️ Browser extensions to "bookmark" tabs on private server
  ┣ 📜README.md           ➡️ Link to the installation guide
- ┗ 📜build.py            ➡️ Link to packages/install/build.sh for compiling Stigmee
+ ┗ 📜build.py            ➡️ Link to packages/install/build.py for compiling Stigmee
 ```
 
 ### Compile Stigmee
@@ -201,7 +201,7 @@ Please refer to this [documentation](https://github.com/stigmee/stigmee/blob/dev
 
 ``` bash
 cd $WORKSPACE_STIGMEE
-./build.sh release
+./build.py release
 # Alternative:
 # ./build.py debug
 ```
@@ -210,7 +210,9 @@ cd $WORKSPACE_STIGMEE
 
 ```
 cd %WORKSPACE_STIGMEE%
-build.py
+build.py release
+# Alternative:
+# build.py debug
 ```
 
 ### Keep Stigmee's workspace up-to-date
