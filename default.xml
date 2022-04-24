@@ -50,4 +50,5 @@
 
     <!-- Stigmee documentation -->
     <project name="stigmee/doc-internal" remote="github" path="doc/internal" />
+    <project name="stigmee/.github" remote="github" path="doc/welcome" />
 </manifest>
