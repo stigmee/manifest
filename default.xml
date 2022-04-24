@@ -39,6 +39,7 @@
     <project name="stigmee/stigmark-server" remote="github" path="packages/stigmark" />
     <project name="stigmee/beebots" remote="github" path="packages/beebots" />
     <project name="stigmee/manifest" remote="github" path="packages/manifest" />
+    <project name="stigmee/assets" remote="github" path="packages/assets" />
     <project name="stigmee/install" remote="github" path="packages/install" >
         <symlink src="packages/install/build.py" dest="build.py" />
         <symlink src="packages/install/README.md" dest="README.md" />

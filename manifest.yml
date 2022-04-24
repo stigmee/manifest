@@ -60,6 +60,9 @@ repos:
   - url: git@github.com:stigmee/manifest
     dest: packages/manifest
 
+  - url: git@github.com:stigmee/assets
+    dest: packages/assets
+
   # IPFS packages
   - url: git@github.com:vasild/cpp-ipfs-http-client.git
     dest: packages/ipfs
