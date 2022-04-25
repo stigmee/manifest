@@ -42,7 +42,7 @@
     <project name="stigmee/assets" remote="github" path="packages/assets" />
     <project name="stigmee/install" remote="github" path="packages/install" >
         <symlink src="packages/install/build.py" dest="build.py" />
-        <symlink src="packages/install/README.md" dest="README.md" />
+        <symlink src="packages/install/README.md" dest="INSTALL.md" />
     </project>
 
     <!-- IPFS packages -->
@@ -51,5 +51,7 @@
 
     <!-- Stigmee documentation -->
     <project name="stigmee/doc-internal" remote="github" path="doc/internal" />
-    <project name="stigmee/.github" remote="github" path="doc/welcome" />
+    <project name="stigmee/.github" remote="github" path="doc/welcome" >
+        <symlink src="doc/welcome/profile/README.md" dest="README.md" />
+    </project>
 </manifest>

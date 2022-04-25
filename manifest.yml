@@ -54,7 +54,7 @@ repos:
     symlink:
       - source: build.py
         target: packages/install/build.py
-      - source: README.md
+      - source: INSTALL.md
         target: packages/install/README.md
 
   - url: git@github.com:stigmee/manifest
@@ -76,3 +76,6 @@ repos:
 
   - url: git@github.com:stigmee/.github
     dest: doc/welcome
+    symlink:
+      - source: README.md
+        target: doc/welcome/profile/README.md
