@@ -21,11 +21,11 @@ repos:
 
   # Godot Editor and API
   - url: git@github.com:godotengine/godot
-    dest: godot/3.5/editor
-    tag: "3.5"
+    dest: godot/3.5-stable/editor
+    tag: 3.5-stable
 
   - url: git@github.com:godotengine/godot-cpp
-    dest: godot/3.5/cpp
+    dest: godot/3.5-stable/cpp
     tag: "3.5"
 
   # Godot modules for Stigmee
